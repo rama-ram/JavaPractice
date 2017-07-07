@@ -35,8 +35,19 @@ public class NextGreaterInArray {
 		}
 	}
 
-	void origMethod(int arr[], int n) {
+	static void origMethod(int arr[], int n) {
 		for (int i = 0; i < n; i++) {
+			int element = arr[i];
+			int j = i + 1;
+
+			while (j != n && arr[j] < element) {
+				j++;
+			}
+			if (n == j) {
+				System.out.println(element + " -- " + -1);
+				continue;
+			}
+			System.out.println(element + " -- " + arr[j]);
 
 		}
 
@@ -103,6 +114,7 @@ public class NextGreaterInArray {
 	public static void main(String[] args) {
 		int arr[] = { 11, 1, 13, 21, 3 };
 		int n = arr.length;
-		printNGE(arr, n);
+		// printNGE(arr, n);
+		origMethod(arr, n);
 	}
 }
