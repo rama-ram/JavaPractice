@@ -1,6 +1,6 @@
-package com.practice.misc;
+package com.practice.cmp.vsa;
 
-public class TestMisc1 {
+public class VisaTest1 {
 
 	static String mergeStrings(String a, String b) {
 		StringBuilder merged = new StringBuilder();

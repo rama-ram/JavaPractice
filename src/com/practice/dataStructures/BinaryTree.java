@@ -1,15 +1,20 @@
 package com.practice.dataStructures;
 
 public class BinaryTree {
+	int max_depth = 0;
+	int tree_height = 0;
+	public Node root;
 
-	Node root;
-
-	void add(int value) {
+	public void add(int value) {
 		if (root == null) {
 			root = new Node(value);
 			System.out.println("Added root node" + value);
 		} else
 			root.addNode(value);
+	}
+
+	void reverseLevelOrder() {
+		root.reverseLevelorderTraversal(root);
 	}
 
 	void inorder() {
@@ -35,6 +40,42 @@ public class BinaryTree {
 	int minDepth() {
 
 		return root.minDepth(root);
+	}
+
+	void leftTraversal(Node node, int level) {
+		if (node == null)
+			return;
+		if (level > max_depth) {
+			System.out.println(node.data);
+			max_depth = level;
+
+		}
+		leftTraversal(node.left, level + 1);
+		leftTraversal(node.right, level + 1);
+
+	}
+
+	void rightView(Node node) {
+
+		rightTraversal(node, 1);
+	}
+
+	void rightTraversal(Node node, int level) {
+		if (node == null)// base case
+			return;
+		if (level > max_depth) {// if this is the first node
+			System.out.println(node.data);
+			max_depth = level;
+
+		}
+		rightTraversal(node.right, level + 1);
+		rightTraversal(node.left, level + 1);
+
+	}
+
+	void leftView(Node node) {
+
+		leftTraversal(node, 1);
 	}
 
 	class Res {
@@ -91,9 +132,9 @@ public class BinaryTree {
 	}
 
 	public class Node {
-		Node left;
-		Node right;
-		int data;
+		public Node left;
+		public Node right;
+		public int data;
 
 		Node(int value) {
 			data = value;
@@ -150,11 +191,78 @@ public class BinaryTree {
 
 		}
 
+		void leftBoundaryNodes(Node node) {
+			if (node != null) {
+
+				if (node.left != null) {
+					System.out.println(node.data);
+					// print left subtree
+					leftBoundaryNodes(node.left);
+
+				}
+				if (node.right != null) {
+					System.out.println(node.data);
+					// print left subtree
+					leftBoundaryNodes(node.right);
+
+				}
+
+			}
+
+		}
+
+		void rightBoundaryNodes(Node node) {
+			if (node != null) {
+
+				if (node.right != null) {
+					System.out.println(node.data);
+					// print left subtree
+					rightBoundaryNodes(node.right);
+
+				}
+				if (node.left != null) {
+					System.out.println(node.data);
+					// print left subtree
+					rightBoundaryNodes(node.left);
+
+				}
+
+			}
+
+		}
+
+		// void printBoundary(Node node) {
+		// if (node != null) {
+		// System.out.print(node.data + " ");
+		//
+		// // Print the left boundary in top-down manner.
+		// printBoundaryLeft(node.left);
+		//
+		// // Print all leaf nodes
+		// printLeaves(node.left);
+		// printLeaves(node.right);
+		//
+		// // Print the right boundary in bottom-up manner
+		// printBoundaryRight(node.right);
+		// }
+		// }
+		//
 		void levelorderTraversal(Node node) {
 			if (node == null)
 				return;
 			int height = getTreeHeight(node);
+			height = getTreeHeight(node);
 			for (int i = 1; i <= height; i++) {
+
+				printGivenLevel(node, i);
+			}
+		}
+
+		void reverseLevelorderTraversal(Node node) {
+			if (node == null)
+				return;
+			int height = getTreeHeight(node);
+			for (int i = height; i >= 1; i--) {
 
 				printGivenLevel(node, i);
 			}
@@ -218,15 +326,21 @@ public class BinaryTree {
 		// bt.add(10);
 		// bt.add(2);
 		// bt.add(1);
-		System.out.println("inorder..");
-		bt.inorder();
-		System.out.println("preorder..");
-		bt.preorder();
-		System.out.println("postorder..");
-		bt.postorder();
+		// System.out.println("inorder..");
+		// bt.inorder();
+		// System.out.println("preorder..");
+		// bt.preorder();
+		// System.out.println("postorder..");
+		// bt.postorder();
 		System.out.println("levelorder..");
 		bt.levelorder();
-		System.out.println("minDepth.." + bt.minDepth());
+		System.out.println("Reverse levelorder..");
+		bt.reverseLevelOrder();
+		// System.out.println("minDepth.." + bt.minDepth());
+		// System.out.println("left view..");
+		// bt.leftView(bt.root);
+		// System.out.println("right view..");
+		// bt.rightView(bt.root);
 
 	}
 

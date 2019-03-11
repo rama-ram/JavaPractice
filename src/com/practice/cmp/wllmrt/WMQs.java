@@ -1,4 +1,4 @@
-package com.practice.misc;
+package com.practice.cmp.wllmrt;
 
 public class WMQs {
 	// 1)Find out the duplicate words in a file containing a paragraph. (Used

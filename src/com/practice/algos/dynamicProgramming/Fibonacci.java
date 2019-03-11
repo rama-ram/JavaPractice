@@ -1,4 +1,4 @@
-package com.practice.dynamicProgramming;
+package com.practice.algos.dynamicProgramming;
 
 public class Fibonacci {
 	static int[] arr = new int[100];
