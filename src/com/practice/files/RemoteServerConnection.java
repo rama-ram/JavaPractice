@@ -11,7 +11,7 @@ import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 
 public class RemoteServerConnection {
-	static final String host = "slc05emb.us.oracle.com";
+	static final String host = "host.com";
 	static final int port = 22;
 	static final String username = "ramaram";
 	static final String passwd = "";
