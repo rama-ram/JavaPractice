@@ -1,4 +1,5 @@
 package com.practice.files;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -12,6 +13,17 @@ import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
 public class XlReadWriteTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String xl = new String("D:\\xlinput.xls");
+		HashMap<Integer, ArrayList<String>> map = new HashMap<>();
+		map = readFromXLToHashMap(xl);
+		String xl1 = new String("D:\\xlinput_new.xls");
+		// write from map to an xl
+
+	}
 
 	static HashMap<Integer, ArrayList<String>> readFromXLToHashMap(String xl) {
 		HashMap<Integer, ArrayList<String>> map = new HashMap<Integer, ArrayList<String>>();
@@ -91,15 +103,5 @@ public class XlReadWriteTest {
 	// System.out.println("Done");
 	// }
 	// }
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-		String xl = new String("D:\\xlinput.xls");
-		HashMap<Integer, ArrayList<String>> map = new HashMap<Integer, ArrayList<String>>();
-		map = readFromXLToHashMap(xl);
-		// write from map to an xl
-
-	}
 
 }

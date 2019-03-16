@@ -14,7 +14,7 @@ public class RemoteServerConnection {
 	static final String host = "slc05emb.us.oracle.com";
 	static final int port = 22;
 	static final String username = "ramaram";
-	static final String passwd = "k.k.c.M.2@";
+	static final String passwd = "";
 
 	static void connct() {
 		JSch jsh = new JSch();
